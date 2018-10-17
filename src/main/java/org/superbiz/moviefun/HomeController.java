@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.naming.NamingException;
 
 import org.springframework.transaction.support.TransactionOperations;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.superbiz.moviefun.albums.Album;
 import org.superbiz.moviefun.albums.AlbumFixtures;
 import org.superbiz.moviefun.albums.AlbumsBean;

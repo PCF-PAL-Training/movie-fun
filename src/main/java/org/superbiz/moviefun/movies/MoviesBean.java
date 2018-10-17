@@ -36,6 +36,7 @@ public class MoviesBean {
         return entityManager.find(Movie.class, id);
     }
 
+    @Transactional("moviesPlatformTransactionManager")
     public void addMovie(Movie movie) {
         entityManager.persist(movie);
     }
