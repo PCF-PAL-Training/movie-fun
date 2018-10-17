@@ -13,17 +13,14 @@ import java.util.Scanner;
 public class CsvUtils {
 
     public static String readFile(String path) {
-        try {
-            Scanner scanner = new Scanner(new File(path)).useDelimiter("\\A");
 
-            if (scanner.hasNext()) {
-                return scanner.next();
-            } else {
-                return "";
-            }
+        ClassLoader classLoader = CsvUtils.class.getClassLoader();
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        Scanner scanner = new Scanner(classLoader.getResourceAsStream(path)).useDelimiter("\\A");
+        if (scanner.hasNext()) {
+            return scanner.next();
+        } else {
+            return "";
         }
     }
 
