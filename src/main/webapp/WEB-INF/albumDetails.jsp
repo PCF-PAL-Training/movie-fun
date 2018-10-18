@@ -73,7 +73,16 @@
         <dt>Year</dt>
         <dd>${requestScope.album.year}</dd>
 
-        <dt>Cover</dt>
+        <dt>
+            <span>Cover<span>
+
+            <form action="/albums/${requestScope.album.id}/cover/delete" method="POST" >
+                Cover
+                <input type="submit" value="Delete">
+            </form>
+        </dt>
+
+        <br/>
         <dd><img src="/albums/${requestScope.album.id}/cover" alt="Album Cover" class="cover"></dd>
     </dl>
 
