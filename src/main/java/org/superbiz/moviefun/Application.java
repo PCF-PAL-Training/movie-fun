@@ -8,15 +8,24 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.superbiz.moviefun.blobstore.BlobStore;
 import org.superbiz.moviefun.blobstore.S3Store;
 import org.superbiz.moviefun.blobstore.ServiceCredentials;
+
+import javax.sql.DataSource;
 
 @SpringBootApplication
 public class Application {
 
     public static void main(String... args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        return jdbcTemplate;
     }
 
     @Bean
